@@ -1,0 +1,9 @@
+pyproject.toml
+actuarial_engine.egg-info/PKG-INFO
+actuarial_engine.egg-info/SOURCES.txt
+actuarial_engine.egg-info/dependency_links.txt
+actuarial_engine.egg-info/requires.txt
+actuarial_engine.egg-info/top_level.txt
+tests/test_actuarial_values.py
+tests/test_interest.py
+tests/test_mortality.py

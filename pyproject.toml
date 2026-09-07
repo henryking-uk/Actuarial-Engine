@@ -1,0 +1,13 @@
+[project]
+name = "actuarial-engine"
+version = "0.1.0"
+description = "A modular actuarial pricing and risk analysis engine"
+requires-python = ">=3.11"
+dependencies = [
+    "pandas",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+]
