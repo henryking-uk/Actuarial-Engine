@@ -1,4 +1,4 @@
-from mortality.mortality_table import MortalityTable
+from scripts.mortality.mortality_table import MortalityTable
 
 class Mortality:
     def __init__(self, table):
@@ -12,9 +12,9 @@ class Mortality:
     def t_px(self, age, sex, year, t): 
         """Probability of surviving t years"""
 
-        t_px = self.px(age, sex, year)
+        t_px = 1
 
-        for k in range(1, t):
+        for k in range(t):
             t_px *= self.px(age + k, sex, year)
         
         return t_px
