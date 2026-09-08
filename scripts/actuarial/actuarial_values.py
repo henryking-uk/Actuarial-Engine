@@ -50,3 +50,21 @@ class ActuarialValues:
             print(f"Assurnace, {age + t - 1, self.mortality.table.qx(age, sex, year)}")
 
         return Axn
+
+    def temporary_annuity_due_factor(self, age, sex, year, n):
+        """Present value of an n-year temporary annuity-due of 1."""
+        axn = 0
+
+        for t in range(n):
+            t_px = self.mortality.t_px(age, sex, year, t)
+            vt = self.interest.discount_factor(t)
+            axn += t_px * vt
+
+        return axn
+
+    def term_assurance_premium(self, age, sex, year, n, sum_assured):
+        """Annual level premium for an n-year term assurance."""
+        Axn = self.term_assurance_factor(age, sex, year, n)
+        axn = self.temporary_annuity_due_factor(age, sex, year, n)
+
+        return sum_assured * Axn / axn
