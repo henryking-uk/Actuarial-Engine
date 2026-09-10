@@ -1,6 +1,6 @@
 import pytest
 
-from scripts.finance.interest import Interest
+from actuarial_engine.finance.interest import Interest
 
 
 @pytest.fixture

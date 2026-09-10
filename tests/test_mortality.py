@@ -1,7 +1,7 @@
 import pytest
 
-from scripts.mortality.mortality_table import MortalityTable
-from scripts.mortality.mortality import Mortality
+from actuarial_engine.mortality.mortality_table import MortalityTable
+from actuarial_engine.mortality.mortality import Mortality
 
 
 @pytest.fixture

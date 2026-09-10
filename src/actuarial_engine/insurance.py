@@ -1,4 +1,4 @@
-from actuarial.actuarial_values import ActuarialValues
+from actuarial_engine.actuarial.actuarial_values import ActuarialValues
 
 class WholeLifeAssurance:
     def __init__(self, actuarial_values):
@@ -8,8 +8,7 @@ class WholeLifeAssurance:
         A = self.actuarial_values.whole_life_assurance_factor(age, sex, year)
         a = self.actuarial_values.whole_life_annuity_due_factor(age, sex, year)
 
-        print(f"whole life assurance factor {A}")
-        print(f"whole life annuity due factor {a}")
+
 
         premium = sum_assured * A / a
 

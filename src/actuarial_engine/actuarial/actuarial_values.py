@@ -1,5 +1,5 @@
-from scripts.mortality.mortality import Mortality
-from scripts.finance.interest import Interest
+from actuarial_engine.mortality.mortality import Mortality
+from actuarial_engine.finance.interest import Interest
 
 class ActuarialValues:
     def __init__(self, mortality, interest):
@@ -31,7 +31,6 @@ class ActuarialValues:
             vt = self.interest.discount_factor(t)
             ax = ax + t_px * vt
 
-            print(f"Annuity , {age + t, t_px}")
 
         return ax
 
@@ -47,7 +46,6 @@ class ActuarialValues:
 
             Axn = Axn + t__px * qxt__ * vt
 
-            print(f"Assurnace, {age + t - 1, self.mortality.table.qx(age, sex, year)}")
 
         return Axn
 

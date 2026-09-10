@@ -1,9 +1,9 @@
 import pytest
 
-from scripts.mortality.mortality_table import MortalityTable
-from scripts.mortality.mortality import Mortality
-from scripts.finance.interest import Interest
-from scripts.actuarial.actuarial_values import ActuarialValues
+from actuarial_engine.mortality.mortality_table import MortalityTable
+from actuarial_engine.mortality.mortality import Mortality
+from actuarial_engine.finance.interest import Interest
+from actuarial_engine.actuarial.actuarial_values import ActuarialValues
 
 
 @pytest.fixture

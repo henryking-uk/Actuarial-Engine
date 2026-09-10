@@ -1,0 +1,8 @@
+Metadata-Version: 2.4
+Name: actuarial-engine
+Version: 0.1.0
+Summary: A modular actuarial pricing and risk analysis engine
+Requires-Python: >=3.11
+Requires-Dist: pandas
+Provides-Extra: dev
+Requires-Dist: pytest; extra == "dev"

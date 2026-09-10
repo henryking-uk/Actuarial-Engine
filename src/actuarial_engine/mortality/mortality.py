@@ -1,4 +1,4 @@
-from scripts.mortality.mortality_table import MortalityTable
+from actuarial_engine.mortality.mortality_table import MortalityTable
 
 class Mortality:
     def __init__(self, table):
