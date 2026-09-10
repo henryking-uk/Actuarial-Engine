@@ -1,10 +1,10 @@
-from finance.interest import Interest
+from actuarial_engine.finance.interest import Interest
 
 class Cashflow:
-    def __init__(self, time, amount, type):
+    def __init__(self, time, amount, cashflow_type):
         self.time: int = time
         self.amount: float = amount
-        self.type: str = type
+        self.cashflow_type: str = cashflow_type
 
     def present_value(self, interest: Interest):
-        return self.amount / (interest.rate + 1)**self.time
+        return self.amount * interest.discount_factor(self.time)
