@@ -66,3 +66,18 @@ class ActuarialValues:
         axn = self.temporary_annuity_due_factor(age, sex, year, n)
 
         return sum_assured * Axn / axn
+
+    def increasing_whole_life_assurance_factor(self, age, sex, year, g):
+        """Present value factor for a whole-life death benefit increasing at rate g."""
+
+        Ax_g = 0
+
+        for t in range(1, 101 - age):
+            t__px = self.mortality.t_px(age, sex, year, t-1)
+            qxt__ = self.mortality.table.qx(age + t - 1, sex, year)
+            vt = self.interest.discount_factor(t)
+            growth_term = (1 + g)**(t - 1)
+
+            Ax_g = Ax_g + t__px * qxt__ * vt * growth_term
+
+        return Ax_g 

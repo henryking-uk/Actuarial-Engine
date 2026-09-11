@@ -3,7 +3,7 @@ from actuarial_engine.mortality.mortality import Mortality
 from actuarial_engine.finance.interest import Interest
 from actuarial_engine.actuarial.actuarial_values import ActuarialValues
 from actuarial_engine.actuarial.cashflow import Cashflow
-from actuarial_engine.insurance import WholeLifeAssurance
+from actuarial_engine.insurance import WholeLifeAssurance, InflationLinkedWholeLife
 
 processedFilePath = r'data\processed\mortality_data.csv'
 
@@ -16,15 +16,19 @@ interest = Interest(0.05)
 
 actuarialTools = ActuarialValues(mortality, interest)
 
-whole = WholeLifeAssurance(actuarialTools)
+policy_inflation = InflationLinkedWholeLife(actuarialTools, 500000, 40, "Male", 2024, -0.03)
+policy = WholeLifeAssurance(actuarialTools, 500000, 40, "Male", 2024)
+
+print(policy_inflation.premium())
+print(policy.premium())
 
 
 
-cf = Cashflow(
-    100,
-    whole.premium(19, "Male", 2024, 500000),
-    "Premium",
-)
+# cf = Cashflow(
+#     100,
+#     whole.premium(19, "Male", 2024, 500000),
+#     "Premium",
+# )
 
-print(cf.present_value(interest))#
-print(whole.premium(19, "Male", 2024, 500000))
+# print(cf.present_value(interest))#
+# print(whole.premium(19, "Male", 2024, 500000))

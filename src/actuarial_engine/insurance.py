@@ -23,5 +23,13 @@ class InflationLinkedWholeLife(Insurance):
         super().__init__(actuarial_values, sum_assured, age, sex, year)
         self.inflation_rate = inflation_rate
 
+    def premium(self):
+        Ax_g = self.actuarial_values.increasing_whole_life_assurance_factor(self.age, self.sex, self.year, self.inflation_rate)
+        a = self.actuarial_values.whole_life_annuity_due_factor(self.age, self.sex, self.year)
+
+        premium = self.sum_assured * Ax_g / a
+
+        return premium
+
     def benefit_t(self, t):
         return (1 + self.inflation_rate)**t * self.sum_assured
